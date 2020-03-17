@@ -5,13 +5,13 @@ using UnityEngine;
 public class BackgroundController : MonoBehaviour
 {
     public float scrollSpeed;
-    private Renderer renderer;
+    private Renderer rend;
     private Vector2 savedOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -19,6 +19,6 @@ public class BackgroundController : MonoBehaviour
     {
         float y = Mathf.Repeat(Time.time * scrollSpeed, 1);
         Vector2 offset = new Vector2(0, y);
-        renderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
+        rend.sharedMaterial.SetTextureOffset("_MainTex", offset);
     }
 }

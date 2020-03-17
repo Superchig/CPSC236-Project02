@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class BulletEnemyController : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class BulletEnemyController : MonoBehaviour
         {
             GameObject.Destroy(this.gameObject);
             GameObject.Destroy(collision.gameObject);
+
+            GameObject.Find("ScoreText").GetComponent<ScoreController>().WriteScoreIfHigh();
         }
     }
 }
